@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+// 先引入本地帆软安装目录的jar包
 public class ExcelToCpt {
     public static void main(String[] args) throws Exception {
         // 首先需要定义执行所在的环境，这样才能正确读取数据库信息
@@ -44,10 +45,10 @@ public class ExcelToCpt {
         SimpleWork.checkIn(envpath);
         I18nResource.getInstance();
         module.start();
-        File excelFile = new File("//Users//huzhiqi//Documents//胡智奇//数据//报表//促销活动.xlsx"); // 获取EXCEL文件
+        File excelFile = new File("//Users//huzhiqi//Documents//SKP销售达成及客流.xlsx"); // 获取EXCEL文件
         FileInputStream a = new FileInputStream(excelFile);
         TemplateWorkBook tpl = new Excel2007ReportImporter().generateWorkBookByStream(a);
-        OutputStream outputStream = new FileOutputStream(new File("//Users//huzhiqi//Documents//胡智奇//数据//报表//promotion_detail.cpt")); // 转换成cpt模板
+        OutputStream outputStream = new FileOutputStream(new File("//Users//huzhiqi//Documents////slaes-traffic-report.cpt")); // 转换成cpt模板
         ((WorkBook) tpl).export(outputStream);
         outputStream.close();
         module.stop();
